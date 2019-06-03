@@ -23,7 +23,7 @@ class App extends React.Component {
           {this.state.data.map(post =>(
             <PostContainer
               postProp={post}
-              key={Date.now()}
+              key={post.id}
             />
           ))}
         </div>
