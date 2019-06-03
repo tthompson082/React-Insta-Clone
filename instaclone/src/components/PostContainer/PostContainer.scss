@@ -1,0 +1,53 @@
+.cards {
+    box-sizing: border-box;
+    width: 40%;
+    border: 1px solid #ECECEC;
+    margin-bottom: 10px;
+
+    .card-title {
+        display: flex;
+        align-items: center;
+        padding: 10px 10px;
+
+        img {
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+            padding-right: 8px;
+        }
+
+        span {
+            font-weight: bolder;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .card-icons {
+        display: flex;
+        padding: 3px 10px;
+        width: 80px;
+        justify-content: space-between;
+    }
+
+    .likes {
+        padding-left: 10px;
+    }
+
+    .comment-section {
+        padding-bottom: 5px;
+        margin: 0 10px;
+        border-bottom: 1px solid #ECECEC;
+    }
+
+    input {
+        width: 95%;
+        height: 30px;
+        border: none;
+        padding: 10px 10px;
+        outline: none;
+        font-size: 16px;
+    }
+}

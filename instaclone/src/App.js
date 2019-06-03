@@ -19,7 +19,7 @@ class App extends React.Component {
       <div className="App">
         <SearchBar />
 
-        <div className="cards">
+        <div className="card-container">
           {this.state.data.map(post =>(
             <PostContainer
               postProp={post}
