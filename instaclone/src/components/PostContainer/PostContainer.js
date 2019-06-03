@@ -3,6 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
 import CommentSection from '../CommentSection/CommentSection';
+import PropTypes from 'prop-types';
 import './PostContainer.scss'
 
 library.add(faHeart, faComment);
@@ -36,6 +37,19 @@ const PostContainer = props => {
             <input type="text" name="comment" placeholder="Add a comment..."/>
         </div>
     )
+}
+
+PostContainer.propTypes = {
+    postProp: PropTypes.shape({
+        id: PropTypes.string,
+        username: PropTypes.string,
+        thumbnailUrl: PropTypes.string,
+        imageUrl: PropTypes.string,
+        likes: PropTypes.number,
+        timestamp: PropTypes.string,
+        comments: PropTypes.array
+    })
+
 }
 
 export default PostContainer;
