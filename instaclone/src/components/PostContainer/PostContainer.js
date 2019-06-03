@@ -17,6 +17,7 @@ const PostContainer = props => {
                 <FontAwesomeIcon icon="heart" size="2x" />
                 <FontAwesomeIcon icon="comment" size="2x" />
             </div>
+            <p>{props.postProp.likes} likes</p>
         </div>
     )
 }
