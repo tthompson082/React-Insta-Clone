@@ -4,6 +4,7 @@ import './App.scss';
 import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
+import ls from 'local-storage';
 
 
 class App extends React.Component {
@@ -17,8 +18,8 @@ class App extends React.Component {
 
   componentDidMount = () => {
     this.setState({
-      data: dummyData,
-      searchResults: dummyData
+      data: ls.get('data') || dummyData,
+      searchResults: ls.get('searchResults') || dummyData,
     })
   }
 

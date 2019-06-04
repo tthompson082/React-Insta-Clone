@@ -5,6 +5,7 @@ import { faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
 import './PostContainer.scss'
+import ls from 'local-storage'
 import dummyData from '../../dummy-data';
 
 library.add(faHeart, faComment);
@@ -21,8 +22,8 @@ class PostContainer extends React.Component {
 
     componentDidMount = () => {
         this.setState({
-            comments: this.props.postProp.comments,
-            likes: this.props.postProp.likes
+            comments: ls.get('comments') || this.props.postProp.comments,
+            likes: ls.get('likes') || this.props.postProp.likes
         })
     }
 
@@ -40,6 +41,7 @@ class PostContainer extends React.Component {
                 comments: [...prevState.comments, newComment],
                 comment: ''
             }
+            ls.set('comments', this.state.comments)
         })
     }
 
@@ -47,6 +49,7 @@ class PostContainer extends React.Component {
         this.setState({
             likes: this.state.likes + 1
         })
+        ls.set('likes', this.state.likes + 1)
     }
     handleChanges = event => {
         this.setState({
