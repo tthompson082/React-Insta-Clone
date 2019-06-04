@@ -13,13 +13,37 @@ class PostContainer extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            comments: []
+            comments: [],
+            comment: ''
         }
     }
 
     componentDidMount = () => {
         this.setState({
             comments: this.props.postProp.comments
+        })
+    }
+
+    addComment = event => {
+        event.preventDefault();
+    
+        const newComment = {
+            id: Date.now(),
+            username: 'tthompson082',
+            text: this.state.comment
+        };
+
+        this.setState(prevState => {
+            return {
+                comments: [...prevState.comments, newComment],
+                comment: ''
+            }
+        })
+    }
+
+    handleChanges = event => {
+        this.setState({
+            [event.target.name]: event.target.value
         })
     }
     
@@ -49,7 +73,15 @@ class PostContainer extends React.Component {
                     ))}
                 </div>
 
-                <input type="text" name="comment" placeholder="Add a comment..."/>
+                <form onSubmit={this.addComment}>
+                    <input 
+                    type="text" 
+                    name="comment" 
+                    placeholder="Add a comment..."
+                    onChange={this.handleChanges}
+                    value={this.state.comment}
+                    />
+                </form>
             </div>
         )
     }

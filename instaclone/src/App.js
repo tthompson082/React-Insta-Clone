@@ -20,12 +20,6 @@ class App extends React.Component {
     })
   }
 
-  addComment = event => {
-    event.preventDefault();
-
-
-  }
-
   render() {
     return (
       <div className="App">
@@ -35,7 +29,6 @@ class App extends React.Component {
           {this.state.data.map(post =>(
             <PostContainer
               postProp={post}
-              commentsProp={post.comments}
               key={post.id}
             />
           ))}
