@@ -14,13 +14,15 @@ class PostContainer extends React.Component {
         super();
         this.state = {
             comments: [],
+            likes: [],
             comment: ''
         }
     }
 
     componentDidMount = () => {
         this.setState({
-            comments: this.props.postProp.comments
+            comments: this.props.postProp.comments,
+            likes: this.props.postProp.likes
         })
     }
 
@@ -41,6 +43,11 @@ class PostContainer extends React.Component {
         })
     }
 
+    addLike = event => {
+        this.setState({
+            likes: this.state.likes + 1
+        })
+    }
     handleChanges = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -58,11 +65,11 @@ class PostContainer extends React.Component {
                 <img src={this.props.postProp.imageUrl}/>
 
                 <div className="card-icons">
-                    <FontAwesomeIcon icon="heart" size="2x" />
+                    <FontAwesomeIcon icon="heart" size="2x" onClick={this.addLike} />
                     <FontAwesomeIcon icon="comment" size="2x" />
                 </div>
 
-                <p className="likes">{this.props.postProp.likes} likes</p>
+                <p className="likes">{this.state.likes} likes</p>
 
                 <div className="comment-section">
                     {this.state.comments.map(comment =>(
