@@ -17,7 +17,7 @@ const SearchBar = props => {
             </div>
 
             <div className="search">
-                <input type="text" name="search" placeholder="🔎Search"/>
+                <input type="text" name="search" placeholder="🔎Search" onKeyDown={props.searchFunction}/>
             </div>
 
             <div className="icons">
