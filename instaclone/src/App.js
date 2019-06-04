@@ -27,6 +27,8 @@ class App extends React.Component {
     const posts = this.state.data.filter(post => {
       if (post.username.includes(event.target.value)) {
         return post;
+      } else if (event.target.value === '') {
+        return post
       }
     })
     this.setState({
