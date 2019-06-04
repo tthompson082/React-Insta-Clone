@@ -10,8 +10,20 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData
+      data: []
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      data: dummyData
+    })
+  }
+
+  addComment = event => {
+    event.preventDefault();
+
+
   }
 
   render() {
@@ -23,6 +35,7 @@ class App extends React.Component {
           {this.state.data.map(post =>(
             <PostContainer
               postProp={post}
+              commentsProp={post.comments}
               key={post.id}
             />
           ))}
