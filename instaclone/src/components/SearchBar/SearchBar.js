@@ -7,26 +7,33 @@ import './SearchBar.scss'
 
 library.add(fab, faCompass, faHeart, faUser);
 
-const SearchBar = props => {
-    return (
-        <div className="search-bar">
-            <div className="title">
-                <FontAwesomeIcon icon={['fab', 'instagram']} size="3x" />
-                <span className="line">|</span>
-                <h1>Instagram</h1>
-            </div>
+class SearchBar extends React.Component {
 
-            <div className="search">
-                <input type="text" name="search" placeholder="🔎Search" onChange={props.searchFunction}/>
-            </div>
+    logOut = event => {
+        localStorage.removeItem('username')
+    }
 
-            <div className="icons">
-                <FontAwesomeIcon icon="compass" size="2x" />
-                <FontAwesomeIcon icon="heart" size="2x" />
-                <FontAwesomeIcon icon="user" size="2x" />
+    render() {
+        return (
+            <div className="search-bar">
+                <div className="title">
+                    <FontAwesomeIcon icon={['fab', 'instagram']} size="3x" />
+                    <span className="line">|</span>
+                    <h1>Instagram</h1>
+                </div>
+
+                <div className="search">
+                    <input type="text" name="search" placeholder="🔎Search" onChange={this.props.searchFunction}/>
+                </div>
+
+                <div className="icons">
+                    <FontAwesomeIcon icon="compass" size="2x" />
+                    <FontAwesomeIcon icon="heart" size="2x" />
+                    <FontAwesomeIcon icon="user" size="2x" onClick={this.logOut} />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default SearchBar;
