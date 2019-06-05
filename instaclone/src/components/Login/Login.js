@@ -30,6 +30,7 @@ class Login extends React.Component {
                         <Col md={{size: 6, order: 1, offset: 3}}>
                             <FormGroup>
                                 <Input 
+                                    bsSize="lg"
                                     type="username" 
                                     name="username" 
                                     placeholder="Username"
@@ -40,7 +41,8 @@ class Login extends React.Component {
                         </Col>
                         <Col md={{size: 6, order: 1, offset: 3}}>
                             <FormGroup>
-                                <Input 
+                                <Input
+                                    bsSize="lg"
                                     type="password" 
                                     name="password" 
                                     placeholder="Password" 
