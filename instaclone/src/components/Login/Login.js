@@ -43,12 +43,12 @@ class Login extends React.Component {
                                 <Input 
                                     type="password" 
                                     name="password" 
-                                    placehoder="Password" 
+                                    placeholder="Password" 
                                 />
                             </FormGroup>
                         </Col>
                         <Col md={{size: 6, order: 1, offset: 3}}>
-                            <Button size="lg" color="secondary" name="login-submit">
+                            <Button size="lg" block outline color="secondary" name="login-submit">
                                 Login
                             </Button>
                         </Col>
