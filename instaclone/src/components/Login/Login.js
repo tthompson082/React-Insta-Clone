@@ -18,7 +18,8 @@ class Login extends React.Component {
     }
 
     login = event => {
-        localStorage.setItem('username', event.target.value);
+        const user = this.state.username;
+        localStorage.setItem('username', user);
     }
 
     render() {
@@ -50,7 +51,7 @@ class Login extends React.Component {
                             </FormGroup>
                         </Col>
                         <Col md={{size: 6, order: 1, offset: 3}}>
-                            <Button size="lg" block outline color="secondary" name="login-submit">
+                            <Button size="lg" outline color="primary" name="login-submit" block>
                                 Login
                             </Button>
                         </Col>
