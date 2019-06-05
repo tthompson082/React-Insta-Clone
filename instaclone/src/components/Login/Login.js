@@ -1,31 +1,56 @@
 import React from 'react';
 import { Button, Form, FormGroup, Container, Row, Col, Input} from 'reactstrap';
 
+import './Login.scss'
+
 class Login extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            username: ''
+        }
+    }
+
+    handleChanges = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
 
     login = event => {
-
-        localStorage.setItem('username', 'username')
+        localStorage.setItem('username', event.target.value);
     }
 
     render() {
         return (
             <div className="login">
-
-                <Container>
+                <Container className="login-container">
+                    <h1>Login</h1>
                     <Form onSubmit={this.login}>
-                        <Col md={{size: 4, order: 1, offset: 4}}>
+                        <Col md={{size: 6, order: 1, offset: 3}}>
                             <FormGroup>
-                                <Input type="username" name="username" placeholder="Username" />
+                                <Input 
+                                    type="username" 
+                                    name="username" 
+                                    placeholder="Username"
+                                    value={this.state.username}
+                                    onChange={this.handleChanges}
+                                />
                             </FormGroup>
                         </Col>
-                        <Col md={{size: 4, order: 1, offset: 4}}>
+                        <Col md={{size: 6, order: 1, offset: 3}}>
                             <FormGroup>
-                                <Input type="password" name="password" placehoder="Password" />
+                                <Input 
+                                    type="password" 
+                                    name="password" 
+                                    placehoder="Password" 
+                                />
                             </FormGroup>
                         </Col>
-                        <Col md={{size: 4, order: 1, offset: 4}}>
-                            <Button color="secondary" name="login-submit">Login</Button>
+                        <Col md={{size: 6, order: 1, offset: 3}}>
+                            <Button size="lg" color="secondary" name="login-submit">
+                                Login
+                            </Button>
                         </Col>
                     </Form>
                 </Container>
